@@ -34,7 +34,7 @@ model MenuCategory {
   createdAt    DateTime   @default(now())
   updatedAt    DateTime   @updatedAt
   //Relação oneToMany entre Restaurante e Categoria (Um restaurante possui varias categorias)
-  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
   products     Product[]
 }
 
@@ -50,8 +50,8 @@ model Product {
   orderProducts  OrderProduct[]
   createdAt      DateTime       @default(now())
   updatedAt      DateTime       @updatedAt
-  restaurant     Restaurant     @relation(fields: [restaurantId], references: [id])
-  menuCategory   MenuCategory   @relation(fields: [menuCategoryId], references: [id])
+  restaurant     Restaurant     @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+  menuCategory   MenuCategory   @relation(fields: [menuCategoryId], references: [id], onDelete: Cascade)
 }
 
 model Order {
@@ -60,7 +60,7 @@ model Order {
   status            OrderStatus
   consumptionMethod ConsumptionMethod
   orderProducts     OrderProduct[]
-  restaurant        Restaurant        @relation(fields: [restaurantId], references: [id])
+  restaurant        Restaurant        @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
   restaurantId      String
 }
 
@@ -72,8 +72,8 @@ model OrderProduct {
   price     Float
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  product   Product  @relation(fields: [productId], references: [id])
-  order     Order    @relation(fields: [orderId], references: [id])
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  order     Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
 }
 
 enum OrderStatus {
