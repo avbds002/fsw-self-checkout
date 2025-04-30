@@ -1,0 +1,16 @@
+1) Comando para criar o projeto NEXT
+npm create next-app@15.1.6 .
+
+OBS: Você vai usar todas dependências menos as finais
+
+2)Comandos para instalar o PRISMA e fazer a conexão com o banco de dados
+npm install prisma@6.2.1
+npm install @prisma/client@6.2.1
+npx prisma init
+npx prisma format
+
+OBS: no curso ele recomenda usar o neondb para rodar um postgres no cloud, eu fiz em localhost
+ALTERNATIVOS: supabase, vercelpostgres, neondb
+OBS 2: A varíavel .env fica na pasta global DATABASE_URL="postgresql://postgres:admin@localhost:5432/fsw-self-checkout?schema=public"
+
+npx prisma migrate dev -> Para criar as tabelas desse banco de dados
