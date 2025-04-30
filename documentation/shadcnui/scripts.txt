@@ -1,0 +1,3 @@
+Essa ferramenta serve para gerar componentes REACT de forma automática
+
+npx shadcn@2.3.0 init
