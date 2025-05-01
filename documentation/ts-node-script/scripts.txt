@@ -1,2 +1,5 @@
 1) Comando para instalar o ts-node para poder rodar o seed.ts e povoar a base de dados
 npm install -D ts-node@10.9.2
+
+2) rodando o comando de seed do banco de dados
+npx prisma db seed
